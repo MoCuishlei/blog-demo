@@ -5,11 +5,11 @@
 <mapper namespace="pro.blog.dao.ContentMapper">
 
     <resultMap id="article" type="pro.blog.dto.Article">
-        <result property="id" column="id" javaType="String"/>
-        <result property="content" column="content" typeHandler="pro.blog.config.mybatis.ListTypeHandler"/>
+        <id property="id" column="articleid"/>
+        <collection property="content" column="content"/>
     </resultMap>
 
-    <select id="getContext" resultMap="article" parameterType="int">
+    <select id="getContext" resultMap="article">
         SELECT *
         FROM ARTICLE
         WHERE articleid = #{id}

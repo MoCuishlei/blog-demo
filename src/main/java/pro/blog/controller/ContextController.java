@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pro.blog.component.Result;
 import pro.blog.dao.ContentMapper;
+import pro.blog.dto.Article;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
@@ -28,7 +29,7 @@ public class ContextController {
     ContentMapper contentMapper;
 
     @GetMapping("/article/{id}")
-    public Result<List<?>> getC(@PathVariable("id")int id, HttpServletResponse response) throws UnsupportedEncodingException {
+    public Result<Article> getC(@PathVariable("id")int id) {
         return Result.success(contentMapper.getContext(id));
     }
 }

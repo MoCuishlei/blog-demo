@@ -8,5 +8,5 @@ import java.util.List;
 
 @Mapper
 public interface ContentMapper {
-    List<Article> getContext(int id);
+    Article getContext(int id);
 }
